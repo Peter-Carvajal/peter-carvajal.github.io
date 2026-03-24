@@ -1,153 +1,290 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PETER CARVAJAL | Portfolio</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        accent: '#3498db',
+                        'accent-dark': '#2980b9',
+                        slate: {
+                            850: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --primary-color: #2c3e50;      /* Dark slate blue - more professional */
-            --secondary-color: #34495e;    /* Darker blue-gray */
-            --accent-color: #3498db;       /* Professional blue */
-            --text-color: #2c3e50;         /* Dark text for readability */
-            --light-bg: #f8f9fa;           /* Very light gray background */
-            --card-bg: #ffffff;            /* White cards */
-            --border-color: #ecf0f1;       /* Light border */
-        }
-        
-        body { 
-            font-family: 'Georgia', 'Times New Roman', serif;  /* Classic professional font */
-            line-height: 1.7; 
-            margin: 0; 
-            background-color: var(--light-bg);
-            color: var(--text-color);
-        }
-        
-        .container {
-            max-width: 900px; 
-            margin: 0 auto; 
-            padding: 40px 20px; 
-        }
-        
-        header { 
-            border-bottom: 2px solid var(--border-color); 
-            padding-bottom: 25px; 
-            margin-bottom: 35px; 
-        }
-        
-        h1 { 
-            color: var(--primary-color); 
-            letter-spacing: 0.5px; 
-            margin-bottom: 8px;
-            font-weight: normal;
-        }
-        
-        .subtitle { 
-            font-size: 1.1em; 
-            color: var(--secondary-color); 
-            margin-top: 0; 
-            font-weight: normal;
-        }
-        
-        section {
-            margin-bottom: 40px;
-        }
-        
-        h2 {
-            color: var(--primary-color); 
-            margin-top: 0;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-            font-weight: normal;
-        }
-        
-        .card { 
-            background: var(--card-bg); 
-            border-left: 4px solid var(--accent-color); 
-            padding: 20px 25px; 
-            margin-bottom: 25px; 
-            border-radius: 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        .card h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-            margin-bottom: 12px;
-            font-size: 1.2em;
-        }
-        
-        .card p {
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-        
-        .tech-tag {
-            display: inline-block;
-            background: #ebf5fb;
-            color: var(--accent-color);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            margin-right: 8px;
-            margin-top: 8px;
-            font-weight: normal;
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                padding: 20px;
-            }
-            
-            .container {
-                padding: 0;
-            }
+        body { font-family: 'Inter', sans-serif; }
+        .glass {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <h1>PETER CARVAJAL</h1>
-            <p class="subtitle">Electronic and Telecommunications Engineering | Data Engineering</p>
-        </header>
+<body class="bg-slate-900 text-slate-100 selection:bg-accent/30">
 
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I specialize in designing robust data workflows, from debugging complex ETL pipelines to analyzing propagation research data. My focus bridges the gap between telecommunications infrastructure and advanced data science.</p>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 border-b border-slate-800 glass">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-tight text-white">PC<span class="text-accent">.</span></a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-accent transition-colors">About</a>
+                <a href="#skills" class="hover:text-accent transition-colors">Skills</a>
+                <a href="#experience" class="hover:text-accent transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
+            </div>
+            <a href="#" class="bg-accent hover:bg-accent-dark text-white px-5 py-2 rounded-full text-sm font-semibold transition-all shadow-lg shadow-accent/20">
+                Download CV
+            </a>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20">
+        <!-- Hero Section -->
+        <section id="hero" class="max-w-6xl mx-auto px-6 mb-32">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    PETER <span class="text-accent">CARVAJAL</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-400 mb-8 font-light leading-relaxed">
+                    Electronic and Telecommunications Engineering <span class="text-slate-600">|</span> Data Engineering
+                </p>
+                <div class="flex flex-wrap gap-6 items-center">
+                    <div class="flex space-x-4">
+                        <a href="https://linkedin.com/in/peter-carvajal" target="_blank" class="p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all text-slate-300 hover:text-white border border-slate-700">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://github.com/petercarvajal" target="_blank" class="p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all text-slate-300 hover:text-white border border-slate-700">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                        <a href="mailto:peter.carvajal@example.com" class="p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-all text-slate-300 hover:text-white border border-slate-700">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="experience">
-            <h2>Experience</h2>
-            <div class="card">
-                <h3>Data Engineering Intern | BAMBOOTEC</h3>
-                <p>Navigating large-scale repositories, managing Git workflows, and optimizing data pipelines for business intelligence applications.</p>
-            </div>
-            <div class="card">
-                <h3>Research Assistant | UPB Radiocommunications Laboratory</h3>
-                <p>Focused on propagation research, including orbital mechanics calculations for GEO and LEO satellite communications.</p>
+        <!-- About Me -->
+        <section id="about" class="max-w-6xl mx-auto px-6 mb-32">
+            <div class="flex flex-col md:flex-row gap-12 items-start">
+                <div class="md:w-1/3">
+                    <h2 class="text-sm font-bold uppercase tracking-widest text-accent mb-4">About Me</h2>
+                    <h3 class="text-3xl font-bold text-white leading-tight">Bridging Infra and Analytics</h3>
+                </div>
+                <div class="md:w-2/3">
+                    <p class="text-lg text-slate-400 leading-relaxed">
+                        I specialize in designing robust data workflows, from debugging complex ETL pipelines to analyzing propagation research data. My focus bridges the gap between telecommunications infrastructure and advanced data science.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            <div class="card">
-                <h3>Rain Attenuation Research (LACAP 2026)</h3>
-                <p>Developed a Python-based ETL pipeline to process, clean, and restructure historical pluviometer datasets (2008-2020) for 38 GHz terrestrial link analysis.</p>
-                <span class="tech-tag">Python</span><span class="tech-tag">Pandas</span><span class="tech-tag">Data Quality</span>
-            </div>
-            <div class="card">
-                <h3>Electrical Measurement Analysis</h3>
-                <p>Standardized and processed time-of-use billing blocks (2017-2024) for Bolivian distributors including CRE R.L. and EMDEECRUZ.</p>
-                <span class="tech-tag">SQL</span><span class="tech-tag">Power Query</span><span class="tech-tag">Data Engineering</span>
-            </div>
-            <div class="card">
-                <h3>E-commerce Database Modeling</h3>
-                <p>Designed logical database keys and performed exploratory analysis on the Olist Brazilian E-commerce dataset.</p>
-                <span class="tech-tag">SQL</span><span class="tech-tag">Power BI</span><span class="tech-tag">Data Modeling</span>
+        <!-- Skills Grid -->
+        <section id="skills" class="max-w-6xl mx-auto px-6 mb-32">
+            <h2 class="text-sm font-bold uppercase tracking-widest text-accent mb-12">Technical Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Data Engineering -->
+                <div class="p-8 bg-slate-850 rounded-2xl border border-slate-800 hover:border-accent/30 transition-all group">
+                    <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="database" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Data Engineering</h3>
+                    <ul class="space-y-3 text-slate-400">
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> Python (Pandas, ETL)</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> SQL (PostgreSQL, MSSQL)</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> Data Modeling</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> BI Visualization</li>
+                    </ul>
+                </div>
+                <!-- Telecommunications -->
+                <div class="p-8 bg-slate-850 rounded-2xl border border-slate-800 hover:border-accent/30 transition-all group">
+                    <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="radio" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Telecommunications</h3>
+                    <ul class="space-y-3 text-slate-400">
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> Propagation Research</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> Satellite Link Budget</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> RF Planning</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> Signal Analysis</li>
+                    </ul>
+                </div>
+                <!-- Tools -->
+                <div class="p-8 bg-slate-850 rounded-2xl border border-slate-800 hover:border-accent/30 transition-all group">
+                    <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="terminal" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Tools & Cloud</h3>
+                    <ul class="space-y-3 text-slate-400">
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> Git & CI/CD Pipelines</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> Docker (Basic)</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> Azure Fundamentals</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> Excel (Advanced/VBA)</li>
+                    </ul>
+                </div>
             </div>
         </section>
-    </div>
+
+        <!-- Experience -->
+        <section id="experience" class="max-w-6xl mx-auto px-6 mb-32">
+            <h2 class="text-sm font-bold uppercase tracking-widest text-accent mb-12">Professional Experience</h2>
+            <div class="space-y-12">
+                <div class="relative pl-8 border-l border-slate-800">
+                    <div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-accent ring-4 ring-slate-900 shadow-[0_0_10px_#3498db]"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                        <h3 class="text-xl font-bold text-white">Data Engineering Intern</h3>
+                        <span class="text-slate-500 font-medium text-sm mt-1 md:mt-0">BAMBOOTEC</span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed max-w-2xl">
+                        Navigating large-scale repositories, managing Git workflows, and optimizing data pipelines for business intelligence applications.
+                    </p>
+                </div>
+                <div class="relative pl-8 border-l border-slate-800">
+                    <div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-slate-700"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                        <h3 class="text-xl font-bold text-white">Research Assistant</h3>
+                        <span class="text-slate-500 font-medium text-sm mt-1 md:mt-0">UPB Radiocommunications Lab</span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed max-w-2xl">
+                        Focused on propagation research, including orbital mechanics calculations for GEO and LEO satellite communications.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section id="projects" class="max-w-6xl mx-auto px-6 mb-32">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-sm font-bold uppercase tracking-widest text-accent mb-4">Portfolio</h2>
+                    <h3 class="text-4xl font-bold text-white">Featured Projects</h3>
+                </div>
+                <a href="https://github.com/petercarvajal" target="_blank" class="hidden md:flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
+                    View GitHub <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="group bg-slate-850 rounded-2xl border border-slate-800 overflow-hidden hover:shadow-2xl hover:shadow-accent/5 transition-all">
+                    <div class="aspect-video bg-slate-800 p-8 flex items-center justify-center border-b border-slate-800 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-accent/5 group-hover:bg-accent/10 transition-colors"></div>
+                        <i data-lucide="cloud-rain" class="w-16 h-16 text-accent/20 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2">Rain Attenuation Research</h4>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Developed a Python ETL pipeline to process and restructure historical pluviometer datasets (2008-2020) for LACAP 2026.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-slate-800 rounded-md text-xs text-slate-300">Python</span>
+                            <span class="px-3 py-1 bg-slate-800 rounded-md text-xs text-slate-300">Pandas</span>
+                            <span class="px-3 py-1 bg-slate-800 rounded-md text-xs text-slate-300">Data Engineering</span>
+                        </div>
+                        <a href="#" class="flex items-center gap-2 text-sm font-bold text-accent hover:text-white transition-colors">
+                            Case Study <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="group bg-slate-850 rounded-2xl border border-slate-800 overflow-hidden hover:shadow-2xl hover:shadow-accent/5 transition-all">
+                    <div class="aspect-video bg-slate-800 p-8 flex items-center justify-center border-b border-slate-800 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-accent/5 group-hover:bg-accent/10 transition-colors"></div>
+                        <i data-lucide="zap" class="w-16 h-16 text-accent/20 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2">Electrical Measurement Analysis</h4>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Standardized and processed time-of-use billing blocks (2017-2024) for Bolivian distributors like CRE R.L.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-slate-800 rounded-md text-xs text-slate-300">SQL</span>
+                            <span class="px-3 py-1 bg-slate-800 rounded-md text-xs text-slate-300">Power Query</span>
+                            <span class="px-3 py-1 bg-slate-800 rounded-md text-xs text-slate-300">Data Pipeline</span>
+                        </div>
+                        <a href="#" class="flex items-center gap-2 text-sm font-bold text-accent hover:text-white transition-colors">
+                            View Report <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="group bg-slate-850 rounded-2xl border border-slate-800 overflow-hidden hover:shadow-2xl hover:shadow-accent/5 transition-all">
+                    <div class="aspect-video bg-slate-800 p-8 flex items-center justify-center border-b border-slate-800 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-accent/5 group-hover:bg-accent/10 transition-colors"></div>
+                        <i data-lucide="shopping-cart" class="w-16 h-16 text-accent/20 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2">E-commerce Database Modeling</h4>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Designed logical database keys and performed exploratory analysis on the Olist Brazilian E-commerce dataset.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-slate-800 rounded-md text-xs text-slate-300">SQL</span>
+                            <span class="px-3 py-1 bg-slate-800 rounded-md text-xs text-slate-300">Power BI</span>
+                            <span class="px-3 py-1 bg-slate-800 rounded-md text-xs text-slate-300">Modeling</span>
+                        </div>
+                        <a href="#" class="flex items-center gap-2 text-sm font-bold text-accent hover:text-white transition-colors">
+                            View Dashboard <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="max-w-6xl mx-auto px-6 mb-32">
+            <div class="bg-accent rounded-3xl p-12 md:p-20 text-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+                <h2 class="text-sm font-bold uppercase tracking-widest text-white/70 mb-6">Get in touch</h2>
+                <h3 class="text-3xl md:text-5xl font-bold text-white mb-10 max-w-2xl mx-auto">Let's build something data-driven together</h3>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="mailto:peter.carvajal@example.com" class="bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold hover:bg-slate-100 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="mail" class="w-5 h-5"></i> peter.carvajal@example.com
+                    </a>
+                    <a href="https://linkedin.com/in/peter-carvajal" target="_blank" class="bg-accent-dark text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-600 transition-all flex items-center justify-center gap-2 border border-white/10">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-800 py-12 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <p class="text-slate-500 text-sm">
+                &copy; 2026 Peter Carvajal. Built with <span class="text-accent">Tailwind CSS</span> & <span class="text-accent">Lucide</span>.
+            </p>
+            <div class="flex space-x-6 text-slate-500">
+                <a href="#" class="hover:text-white transition-colors text-sm">Back to top</a>
+                <a href="https://github.com/petercarvajal" target="_blank" class="hover:text-white transition-colors text-sm">GitHub</a>
+                <a href="https://linkedin.com/in/peter-carvajal" target="_blank" class="hover:text-white transition-colors text-sm">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
